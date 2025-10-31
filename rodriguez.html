@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CETIS 47 | Gómez Palacio</title>
+  <link rel="stylesheet" href="stylesss.css">
+</head>
+
+<body>
+  <header>
+    <h1>CETIS 47</h1>
+    <p>Centro de Estudios Tecnológicos Industrial y de Servicios No. 47</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="inicioo.html">Inicio</a></li>
+      <li><a href="dirrecioon.html">Dirección</a></li>
+      <li><a href="estudioos.html">Estudios Académicos</a></li>
+      <li><a href="carreraas.html">Carreras</a></li>
+      <li><a href="galeriaa.html">Galería</a></li>
+    </ul>
+    <form>
+      <input type="search" name="question" placeholder="Buscar..." />
+      <input type="submit" value="Buscar" />
+    </form>
+  </nav>
+
+  <!-- Carrusel corregido -->
+  <section class="carousel">
+    <div class="slides">
+      <div class="slide"><img src="cetisss.jpg" alt="Edificio CETIS 47"></div>
+      <div class="slide"><img src="directora.jpg" alt="Maestros CETIS 47"></div>
+      <div class="slide"><img src="escolta.jpg" alt="Escolta CETIS 47"></div>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </section>
+
+  <main>
+    <article>
+      <h2>Bienvenidos al CETIS 47</h2>
+      <p>El CETIS 47 es una institución educativa comprometida con la formación integral de los jóvenes, preparándolos para continuar sus estudios superiores o incorporarse al mundo laboral con excelencia.</p>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/hpG0Qo4GZDQ?si=rkMMaaT2-ykRZs15" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+      <h3>Formación Académica</h3>
+      <p>Ofrecemos un plan de estudios innovador que combina teoría y práctica en áreas como matemáticas, ciencias, humanidades y lenguas. Contamos con laboratorios, biblioteca y espacios de trabajo colaborativo.</p>
+    </article>
+
+    <aside>
+      <h2>Carreras Ofertadas</h2>
+      <ul>
+        <li>Programación</li>
+        <li>Refrigeración</li>
+        <li>Mantenimiento Industrial</li>
+        <li>Contabilidad</li>
+        <li>Administración de Recursos Humanos</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2025 CETIS 47 | Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Script del carrusel mejorado -->
+  <script>
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let index = 0;
+
+    function updateSlidePosition() {
+      slides.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    next.addEventListener('click', () => {
+      index = (index + 1) % totalSlides;
+      updateSlidePosition();
+    });
+
+    prev.addEventListener('click', () => {
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    });
+
+    // Cambio automático cada 4 segundos
+    setInterval(() => {
+      index = (index + 1) % totalSlides;
+      updateSlidePosition();
+    }, 4000);
+  </script>
+</body>
+</html>
